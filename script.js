@@ -1,21 +1,21 @@
-function createRandomPromiseAndUpdateTable() {
-  function createRandomPromise() {
-    const randomTime = Math.floor(Math.random() * 3) + 1;
-    return new Promise(resolve => {
-      setTimeout(() => {
-        resolve(randomTime);
-      }, randomTime * 1000);
-    });
-  }
+function createRandomPromise() {
+  const randomTime = Math.floor(Math.random() * 3) + 1;
+  return new Promise(resolve => {
+    setTimeout(() => {
+      resolve(randomTime);
+    }, randomTime * 1000);
+  });
+}
 
+function updateTableWithPromises() {
   const promises = [createRandomPromise(), createRandomPromise(), createRandomPromise()];
 
   const outputTable = document.getElementById('output');
 
   const loadingRow = document.createElement('tr');
+  loadingRow.id = 'loading';
   const loadingCell = document.createElement('td');
   loadingCell.colSpan = 2;
-  loadingCell.id = 'loading' ;
   loadingCell.textContent = 'Loading...';
   loadingRow.appendChild(loadingCell);
   outputTable.appendChild(loadingRow);
@@ -47,5 +47,4 @@ function createRandomPromiseAndUpdateTable() {
     });
 }
 
-// Call the function whenever you want to generate random promises and update the table
-createRandomPromiseAndUpdateTable();
+updateTableWithPromises();
