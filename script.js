@@ -15,6 +15,7 @@ function createRandomPromiseAndUpdateTable() {
   const loadingRow = document.createElement('tr');
   const loadingCell = document.createElement('td');
   loadingCell.colSpan = 2;
+  loadingCell.id = 'loading' ;
   loadingCell.textContent = 'Loading...';
   loadingRow.appendChild(loadingCell);
   outputTable.appendChild(loadingRow);
